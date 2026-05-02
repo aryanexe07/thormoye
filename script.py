@@ -5,24 +5,12 @@ import sys
 import time
 from datetime import datetime, timedelta
 
-# ============================================
-# GitHub Contribution Graph Hack
-#
-# Created by Aura Farmer
-# GitHub: https://github.com/aurafarmerone
-#
-# If you like this project, give it a ⭐
-# ============================================
-
 PATTERN_FILE = "pattern.json"
 FILE_PATH = "info.txt"
 
-COMMITS_PER_PIXEL = 5   # lighter than darkest green
+COMMITS_PER_PIXEL = 5   # atleast commits as per reques ( not as per planed)
 
 
-# -------------------------------
-# Loading Animation (3 seconds)
-# -------------------------------
 def loading_animation(duration=3):
     animation = "|/-\\"
     end_time = time.time() + duration
@@ -40,26 +28,19 @@ def loading_animation(duration=3):
 
     print("☑️")
 
+#starting laoding...
 
-# -------------------------------
-# Credit Banner (Start)
-# -------------------------------
 def show_start_credit():
     print(r"""
           
-┏┓• ┓┏  ┓   ┏┓        •   ┓   ┓ 
-┃┓┓╋┣┫┓┏┣┓  ┃ ┏┓┏┳┓┏┳┓┓╋  ┃ ┏┓┣┓
-┗┛┗┗┛┗┗┻┗┛  ┗┛┗┛┛┗┗┛┗┗┗┗  ┗┛┗┻┗┛                       
+┏┓• ┓┏  ┓    ┓   ┓ 
+┃┓┓╋┣┫┓┏┣┓   ┃ ┏┓┣┓
+┗┛┗┗┛┗┗┻┗┛   ┗┛┗┻┗┛                       
 
-Created by Aura Farmer
-GitHub: https://github.com/aurafarmerone
+GitHub: https://github.com/aryanexe07
 ----------------------------------------
 """)
 
-
-# -------------------------------
-# Credit Banner (End)
-# -------------------------------
 def show_end_credit():
     print(r"""
           
@@ -74,17 +55,14 @@ def show_end_credit():
 
 ----------------------------------------
 ⭐ If you like this project, give it a star on GitHub!
-👉 https://github.com/aurafarmerone/github-contribution-graph-hack
+👉 https://github.com/aryanexe07
 
-Made with ❤️  by Aura Farmer
 ----------------------------------------
 """)
 
 
 
-# -------------------------------
-# Git Commit (FIXED)
-# -------------------------------
+
 def git_commit(message, commit_date):
     subprocess.run(["git", "add", FILE_PATH], check=True)
 
@@ -98,7 +76,7 @@ def git_commit(message, commit_date):
         [
             "git",
             "commit",
-            "--allow-empty",   # ✅ FIX: allows commit even if no file changes
+            "--allow-empty",   
             "-m",
             message,
             "--date",
@@ -152,9 +130,8 @@ def make_commits_from_pattern(year):
     git_push()
 
 
-# -------------------------------
 # Entry Point
-# -------------------------------
+
 if __name__ == "__main__":
     loading_animation(3)
     show_start_credit()
